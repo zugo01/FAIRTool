@@ -1,0 +1,12 @@
+name: fair
+title: fair
+username:
+account: zugo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 214741
+bundleId: 987533
+url: https://zugo.shinyapps.io/fair/
+when: 1505817010.88214
+asMultiple: FALSE
+asStatic: FALSE
