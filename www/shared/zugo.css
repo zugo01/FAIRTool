@@ -1,0 +1,64 @@
+.vertical-text {
+	transform: rotate(270deg);
+	transform-origin: left top 10;
+	margin-top: 110px;
+	margin-left: 5px;
+	font-weight: 700;
+	font-size: 12px;
+	display: inline-block;
+	width: 15px;
+}
+
+
+.horizontal-text {
+	margin-top: 5px;
+	margin-left: 5px;
+	font-weight: 700;
+	font-size: 12px;
+	display: inline-block;
+}
+
+
+.table-val {
+	table-layout: fixed;
+	min-width:370px;	
+}
+
+.main-table-heading-column {
+	width: 30px;	
+}
+
+.main-table-heading-row{
+	height: 20px;	
+}
+
+.inner-table-checkbox-row{
+	width: 40px;	
+}
+
+.custom-textbox {
+	width: 100%;
+	text-align: center;
+	border-style: none;
+	padding: 5px;
+}
+
+
+#seed, #noOfSimulations, #vulnSeed, #noOfVulnSimulations {
+  font-size: 10px;
+  width: 100px;
+  display: inline-block;
+  margin-right:10px;
+}
+
+.custom-combobox{
+	width: 100%;
+	text-align: center;
+	border-style: none;
+	padding: 5px;
+	font-size: 10px;
+}
+
+.sim-textbox {
+  height:20px;
+}
