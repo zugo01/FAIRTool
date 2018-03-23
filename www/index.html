@@ -1,0 +1,1095 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script type="application/shiny-singletons"></script>
+      <script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.0];shiny[0.11];bootstrap[3.3.1]</script>
+      <script src="shared/json2-min.js"></script>
+      <script src="shared/jquery.min.js"></script>
+      <script src="shared/zugo.js"></script>
+      <link href="shared/shiny.css" rel="stylesheet" />
+      <link href="shared/zugo.css" rel="stylesheet" />
+      <script src="shared/shiny.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      <script src="shared/bootstrap/js/bootstrap.min.js"></script>
+      <script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+      <script src="shared/bootstrap/shim/respond.min.js"></script>
+      <title>FAIR Tool</title>
+      <style type="text/css">input { font-size:10px; width:40px; display:inline-block; }</style>
+      <style type="text/css">#lml, #lmml, #lmh, #lmconf { font-size:10px; width:100px; display:inline-block; }</style>
+      <style type="text/css">label { font-size:10px; display:inline-block; }</style>
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-12">
+               <h4>FAIR Tool</h4>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-4">
+               <form class="well">
+                  <div class="tabbable tabs-above">
+                     <ul id="inputTabs" class="nav nav-tabs">
+                        <li class="active">
+                           <a href="#tab-5222-11" data-toggle="tab" onclick="scenario1()">Scenario 1</a>
+                        </li>
+                        <li>
+                           <a href="#tab-5222-22" data-toggle="tab" onclick="scenario2()">Scenario 2</a>
+                        </li>
+                     </ul>
+                     <div class="tab-content">
+                        <div class="tab-pane active" id="tab-5222-11">
+                           <table class="table table-bordered">
+                              <thead>
+                                 <tr>
+                                    <th>
+                                       <div class="main-table-heading-column"></div>
+                                    </th>
+                                    <th>
+                                       <div class="horizontal-text main-table-heading-row">LOSS EVENT FREQUENCY</div>
+                                    </th>
+                                    <th>
+                                       <div class="horizontal-text main-table-heading-row">LOSS MAGNITUDE</div>
+                                    </th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       <div class="vertical-text">PRIMARY</div>
+                                    </td>
+                                    <td class="td-val">
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th class="inner-table-checkbox-row"></th>
+                                                   <th></th>
+                                                   <th><label>MIN</label></th>
+                                                   <th><label>ML</label></th>
+                                                   <th><label>MAX</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><input id="chkPLEF" type="checkbox"/></td>
+                                                   <td><label>PLEF</label></td>
+                                                   <td><input id="PLEFMin" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="PLEFML" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="PLEFMax" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="PLEFConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkTEF" type="checkbox"/></td>
+                                                   <td><label>TEF</label></td>
+                                                   <td><input id="TEFMin" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="TEFML" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="TEFMax" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="TEFConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkCF" type="checkbox"/></td>
+                                                   <td><label>CF</label></td>
+                                                   <td><input id="CFMin" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="CFML" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="CFMax" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="CFConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkPOA" type="checkbox"/></td>
+                                                   <td><label>POA</label></td>
+                                                   <td><input id="POAMin" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="POAML" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="POAMax" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="POAConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkVuln" type="checkbox"/></td>
+                                                   <td><label>VULN (%)</label></td>
+                                                   <td><input id="VulnMin" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="VulnML" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="VulnMax" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="VulnConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkTC" type="checkbox"/></td>
+                                                   <td><label>TC (%)</label></td>
+                                                   <td><input id="TCMin" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="TCML" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="TCMax" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="TCConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkRS" type="checkbox"/></td>
+                                                   <td><label>RS (%)</label></td>
+                                                   <td><input id="RSMin" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="RSML" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="RSMax" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="RSConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (£)</label></th>
+                                                   <th><label>ML (£)</label></th>
+                                                   <th><label>MAX (£)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Productivity</label></td>
+                                                   <td><input id="PrimaryProductivityMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryProductivityML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryProductivityMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryProductivityConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Response</label></td>
+                                                   <td><input id="PrimaryResponseMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryResponseML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryResponseMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryResponseConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Replacement</label></td>
+                                                   <td><input id="PrimaryReplacementMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReplacementML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReplacementMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryReplacementConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>F & J</label></td>
+                                                   <td><input id="PrimaryFandJMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryFandJML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryFandJMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryFandJConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Comp Adv</label></td>
+                                                   <td><input id="PrimaryCompAdvMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryCompAdvML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryCompAdvMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryCompAdvConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Reputation</label></td>
+                                                   <td><input id="PrimaryReputationMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReputationML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReputationMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryReputationConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (hrs)</label></th>
+                                                   <th><label>ML (hrs)</label></th>
+                                                   <th><label>MAX (hrs)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Service Downtime</label></td>
+                                                   <td><input id="ServiceDowntimeMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="ServiceDowntimeML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="ServiceDowntimeMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="ServiceDowntimeConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (kb)</label></th>
+                                                   <th><label>ML (kb)</label></th>
+                                                   <th><label>MAX (kb)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Data Loss</label></td>
+                                                   <td><input id="DataLossMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="DataLossML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="DataLossMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="DataLossConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="vertical-text">SECONDARY</div>
+                                    </td>
+                                    <td class="td-val">
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN</label></th>
+                                                   <th><label>ML</label></th>
+                                                   <th><label>MAX</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>SLEF (%)</label></td>
+                                                   <td><input id="SLEFMin" type="number" class="custom-textbox" value="0" min="0" max="100"/></td>
+                                                   <td><input id="SLEFML" type="number" class="custom-textbox" value="0" min="0" max="100"/></td>
+                                                   <td><input id="SLEFMax" type="number" class="custom-textbox" value="0" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="SLEFConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (£)</label></th>
+                                                   <th><label>ML (£)</label></th>
+                                                   <th><label>MAX (£)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Productivity</label></td>
+                                                   <td><input id="SecondaryProductivityMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryProductivityML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryProductivityMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryProductivityConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Response</label></td>
+                                                   <td><input id="SecondaryResponseMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryResponseML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryResponseMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryResponseConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Replacement</label></td>
+                                                   <td><input id="SecondaryReplacementMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReplacementML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReplacementMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryReplacementConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>F & J</label></td>
+                                                   <td><input id="SecondaryFandJMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryFandJML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryFandJMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryFandJConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Comp Adv</label></td>
+                                                   <td><input id="SecondaryCompAdvMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryCompAdvML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryCompAdvMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryCompAdvConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Reputation</label></td>
+                                                   <td><input id="SecondaryReputationMin" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReputationML" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReputationMax" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryReputationConf" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <div class="tab-pane" id="tab-5222-22">
+                           <table class="table table-bordered">
+                              <thead>
+                                 <tr>
+                                    <th>
+                                       <div class="main-table-heading-column"></div>
+                                    </th>
+                                    <th>
+                                       <div class="horizontal-text main-table-heading-row">LOSS EVENT FREQUENCY</div>
+                                    </th>
+                                    <th>
+                                       <div class="horizontal-text main-table-heading-row">LOSS MAGNITUDE</div>
+                                    </th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       <div class="vertical-text">PRIMARY</div>
+                                    </td>
+                                    <td class="td-val">
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th class="inner-table-checkbox-row"></th>
+                                                   <th></th>
+                                                   <th><label>MIN</label></th>
+                                                   <th><label>ML</label></th>
+                                                   <th><label>MAX</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><input id="chkPLEF1" type="checkbox"/></td>
+                                                   <td><label>PLEF</label></td>
+                                                   <td><input id="PLEFMin1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="PLEFML1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="PLEFMax1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="PLEFConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkTEF1" type="checkbox"/></td>
+                                                   <td><label>TEF</label></td>
+                                                   <td><input id="TEFMin1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="TEFML1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="TEFMax1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="TEFConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkCF1" type="checkbox"/></td>
+                                                   <td><label>CF</label></td>
+                                                   <td><input id="CFMin1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="CFML1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="CFMax1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="CFConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkPOA1" type="checkbox"/></td>
+                                                   <td><label>POA</label></td>
+                                                   <td><input id="POAMin1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="POAML1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td><input id="POAMax1" type="number" class="custom-textbox" min="0"/></td>
+                                                   <td>
+                                                      <select id="POAConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkVuln1" type="checkbox"/></td>
+                                                   <td><label>VULN (%)</label></td>
+                                                   <td><input id="VulnMin1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="VulnML1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="VulnMax1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="VulnConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkTC1" type="checkbox"/></td>
+                                                   <td><label>TC (%)</label></td>
+                                                   <td><input id="TCMin1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="TCML1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="TCMax1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="TCConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><input id="chkRS1" type="checkbox"/></td>
+                                                   <td><label>RS (%)</label></td>
+                                                   <td><input id="RSMin1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="RSML1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td><input id="RSMax1" type="number" class="custom-textbox" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="RSConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (£)</label></th>
+                                                   <th><label>ML (£)</label></th>
+                                                   <th><label>MAX (£)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Productivity</label></td>
+                                                   <td><input id="PrimaryProductivityMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryProductivityML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryProductivityMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryProductivityConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Response</label></td>
+                                                   <td><input id="PrimaryResponseMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryResponseML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryResponseMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryResponseConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Replacement</label></td>
+                                                   <td><input id="PrimaryReplacementMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReplacementML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReplacementMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryReplacementConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>F & J</label></td>
+                                                   <td><input id="PrimaryFandJMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryFandJML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryFandJMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryFandJConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Comp Adv</label></td>
+                                                   <td><input id="PrimaryCompAdvMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryCompAdvML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryCompAdvMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryCompAdvConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Reputation</label></td>
+                                                   <td><input id="PrimaryReputationMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReputationML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="PrimaryReputationMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="PrimaryReputationConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (hrs)</label></th>
+                                                   <th><label>ML (hrs)</label></th>
+                                                   <th><label>MAX (hrs)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Service Downtime</label></td>
+                                                   <td><input id="ServiceDowntimeMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="ServiceDowntimeML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="ServiceDowntimeMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="ServiceDowntimeConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (kb)</label></th>
+                                                   <th><label>ML (kb)</label></th>
+                                                   <th><label>MAX (kb)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Data Loss</label></td>
+                                                   <td><input id="DataLossMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="DataLossML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="DataLossMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="DataLossConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="vertical-text">SECONDARY</div>
+                                    </td>
+                                    <td class="td-val">
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN</label></th>
+                                                   <th><label>ML</label></th>
+                                                   <th><label>MAX</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>SLEF (%)</label></td>
+                                                   <td><input id="SLEFMin1" type="number" class="custom-textbox" value="0" min="0" max="100"/></td>
+                                                   <td><input id="SLEFML1" type="number" class="custom-textbox" value="0" min="0" max="100"/></td>
+                                                   <td><input id="SLEFMax1" type="number" class="custom-textbox" value="0" min="0" max="100"/></td>
+                                                   <td>
+                                                      <select id="SLEFConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div>
+                                          <table class="table table-bordered table-val" style="max-width:370px;">
+                                             <thead>
+                                                <tr>
+                                                   <th></th>
+                                                   <th><label>MIN (£)</label></th>
+                                                   <th><label>ML (£)</label></th>
+                                                   <th><label>MAX (£)</label></th>
+                                                   <th><label>Conf</label></th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><label>Productivity</label></td>
+                                                   <td><input id="SecondaryProductivityMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryProductivityML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryProductivityMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryProductivityConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Response</label></td>
+                                                   <td><input id="SecondaryResponseMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryResponseML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryResponseMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryResponseConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Replacement</label></td>
+                                                   <td><input id="SecondaryReplacementMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReplacementML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReplacementMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryReplacementConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>F & J</label></td>
+                                                   <td><input id="SecondaryFandJMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryFandJML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryFandJMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryFandJConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Comp Adv</label></td>
+                                                   <td><input id="SecondaryCompAdvMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryCompAdvML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryCompAdvMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryCompAdvConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><label>Reputation</label></td>
+                                                   <td><input id="SecondaryReputationMin1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReputationML1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td><input id="SecondaryReputationMax1" type="number" class="custom-textbox" min="0" value="0"/></td>
+                                                   <td>
+                                                      <select id="SecondaryReputationConf1" class="custom-combobox">
+                                                         <option value="1">VL</option>
+                                                         <option value="4">L</option>
+                                                         <option value="20" selected>M</option>
+                                                         <option value="160">H</option>
+                                                         <option value="640">VH</option>
+                                                      </select>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div style="display: inline;">
+                     <div style="float:left;">
+                        <table class="table table-bordered table-val" style="max-width: 370px;">
+                           <thead>
+                              <tr>
+                                 <th colspan="3"><label class="horizontal-text">QUALITATIVE LOSS SCALE</label></th>
+                              </tr>
+                              <tr>
+                                 <th><label>MAGNITUDE</label></th>
+                                 <th><label>RANGE LOW END(&pound;)</label></th>
+                                 <th><label>RANGE HIGH END(&pound;)</label></th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><label>Severe(SV)</label></td>
+                                 <td><input id="SVLow" class="custom-textbox" min="0" type="number" value="10000000" /></td>
+                                 <td style="text-align: center;">-</td>
+                              </tr>
+                              <tr>
+                                 <td><label>High(H)</label></td>
+                                 <td><input id="HLow" class="custom-textbox" min="0" type="number" value="1000000" /></td>
+                                 <td><input id="HHigh" class="custom-textbox" min="0" type="number" value="9999999" /></td>
+                              </tr>
+                              <tr>
+                                 <td><label>Significant(SG)</label></td>
+                                 <td><input id="SGLow" class="custom-textbox" min="0" type="number" value="100000" /></td>
+                                 <td><input id="SGHigh" class="custom-textbox" min="0" type="number" value="999999" /></td>
+                              </tr>
+                              <tr>
+                                 <td><label>Moderate(M)</label></td>
+                                 <td><input id="MLow" class="custom-textbox" min="0" type="number" value="10000" /></td>
+                                 <td><input id="MHigh" class="custom-textbox" min="0" type="number" value="99999" /></td>
+                              </tr>
+                              <tr>
+                                 <td><label>Low(L)</label></td>
+                                 <td><input id="LLow" class="custom-textbox" min="0" type="number" value="1000" /></td>
+                                 <td><input id="LHigh" class="custom-textbox" min="0" type="number" value="9999" /></td>
+                              </tr>
+                              <tr>
+                                 <td><label>Very Low(VL)</label></td>
+                                 <td><input id="VLLow" class="custom-textbox" min="0" type="number" value="0" readonly/></td>
+                                 <td><input id="VLHigh" class="custom-textbox" min="0" type="number" value="999" /></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div style="padding-left:400px;">
+                        <div>
+                           <h4><label class="horizontal-text">RISK SIMULATION</label></h4>
+                           <label for="seed">Seed</label>
+                           <input id="seed" type="number" style="height:25px;" class="form-control shiny-bound-input sim-textbox" value="1429" min="0"/>
+                           <label for="noOfSimulations"># of Simulations</label>
+                           <input id="noOfSimulations" type="number" style="height:25px;" class="form-control sim-textbox" value="1000" min="0"/>
+                        </div>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label for="lossPercentile" class="col-sm-6">Percentile for Loss Calculation</label>
+                            <input id="lossPercentile" type="number" style="height:25px; width:100px; font-size:10px;" class="form-control shiny-bound-input sim-textbox" value="95" min="0" max="100"/>
+                        </div>
+                        <div>
+                           <h4><label class="horizontal-text">VULNERABILITY SIMULATIONS</label></h4>
+                           <label for="vulnSeed">Seed</label>
+                           <input id="vulnSeed" type="number" style="height:25px;" class="form-control shiny-bound-input sim-textbox" value="7411" min="0"/>
+                           <label for="noOfVulnSimulations"># of Simulations same as above</label>
+                        </div>
+                        <div>
+                           <p></p>
+                           <button id="CopyValue" type="button" class="btn action-button" onclick="CopyValues(this.form)">Copy Scenario 1 values to Scenario 2</button>
+                           <button id="Analyse" class="btn action-button" type="button">Analyse</button>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <div class="col-sm-8">
+               <div class="tabbable tabs-above">
+                  <ul id="outputTabs" class="nav nav-tabs">
+                     <li class="active">
+                        <a href="#tab-5222-1" data-toggle="tab" onclick="scenario1()">Scenario 1</a>
+                     </li>
+                     <li>
+                        <a href="#tab-5222-2" data-toggle="tab" onclick="scenario2()">Scenario 2</a>
+                     </li>
+                     <li>
+                        <a href="#tab-5222-3" data-toggle="tab">Comparison</a>
+                     </li>
+                  </ul>
+                  <div class="tab-content">
+                     <div class="tab-pane active" id="tab-5222-1">
+                        <pre id="detail" class="shiny-text-output"></pre>
+                        <pre id="detail2" class="shiny-text-output"></pre>
+                        <div style="display:inline;">
+                           <div id="ProbPlot" class="shiny-plot-output" style="width: 80% ; height: 400px; float:left;"></div>
+                           <div id="GuagePlot" class="shiny-plot-output" style="width: 20% ; height: 250px; float:right"></div>
+                        </div>
+                        <div id="plot" class="shiny-plot-output" style="width: 100% ; height: 300px"></div>
+                     </div>
+                     <div class="tab-pane" id="tab-5222-2">
+                        <pre id="detail3" class="shiny-text-output"></pre>
+                        <pre id="detail4" class="shiny-text-output"></pre>
+                        <div style="display:inline;">
+                            <div id="ProbPlot1" class="shiny-plot-output" style="width: 80% ; height: 400px; float:left;"></div>
+                            <div id="GuagePlot1" class="shiny-plot-output" style="width: 20% ; height: 250px; float:right"></div>
+                         </div>
+                        <div id="plot1" class="shiny-plot-output" style="width: 100% ; height: 300px"></div>
+                     </div>
+                     <div class="tab-pane" id="tab-5222-3">
+                        <div id="plot2" class="shiny-plot-output" style="width: 100% ; height: 800px"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <p style="text-align:center;">
+         <span style="letter-spacing:0.05em;"><a style="font-size:12px;" href="http://www.ezeugoaguta.com" target="_blank" data-type="external">© 2017 by Ezeugo Aguta</a>
+         </span>
+      </p>
+      
+
+   </body>
+</html>
